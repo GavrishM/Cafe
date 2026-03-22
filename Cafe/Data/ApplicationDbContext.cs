@@ -10,8 +10,8 @@ namespace Cafe.Data
         {
             //Database.Migrate();
         }
-        public DbSet<Client> Client { get; set; }
-        public DbSet<Order> Order { get; set; }
-        public DbSet<Worker> Worker { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Worker> Workers { get; set; }
     }
 }
