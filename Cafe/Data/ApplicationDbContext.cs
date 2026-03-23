@@ -15,3 +15,8 @@ namespace Cafe.Data
         public DbSet<Worker> Workers { get; set; }
     }
 }
+/*
+ * Консоль диспетчера пакетов=>
+* Add-Migration
+* Update-Database
+*/
