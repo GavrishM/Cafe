@@ -1,0 +1,39 @@
+﻿@page
+@model Cafe.Pages.Objects.Meals.MealsListModel
+@{
+	ViewData["Title"] = "Список блюд";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>На этой странице будет список блюд.</p>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Описание</th>
+            <th>Состав</th>
+            <th>Цена</th>
+            <th>Вес</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model.MealsList)
+        {
+            <tr>
+                <td>@client.Name</td>
+                <td>@client.Type</td>
+                <td>@client.Description</td>
+                <td>@client.Contains</td>
+                <td>@client.Price</td>
+                <td>@client.Weight</td>
+                <td>@client.Status</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@client.Id">Открыть</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
