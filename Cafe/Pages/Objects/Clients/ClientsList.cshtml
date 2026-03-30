@@ -1,0 +1,33 @@
+﻿@page
+@model Cafe.Pages.Objects.Clients.ClientsListModel
+@{
+	ViewData["Title"] = "Список клиентов";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>На этой странице будет список клиентов.</p>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Почта</th>
+            <th>Телефон</th>
+            <th>Возвраст</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model.ClientsList)
+        {
+            <tr>
+                <td>@client.FullName</td>
+                <td>@client.Email</td>
+                <td>@client.Phone</td>
+                <td>@client.Age</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@client.Id">Открыть</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
