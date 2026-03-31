@@ -14,5 +14,12 @@
             Phone = phone;
             Age = age; 
         }
+        public Client() 
+        {
+            FullName = "";
+            Email = "";
+            Phone = "";
+            Age = 0;
+        }
     }
 }
