@@ -1,0 +1,33 @@
+﻿@page
+@model Cafe.Pages.Orders.IndexModel
+@{
+	ViewData["Title"] = "Список заказов";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>На этой странице будет список заказов.</p>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            @*<th>Содержимое заказа</th>*@
+            <th>Счет</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model.OrdersList)
+        {
+            <tr>
+                <td>@client.NumberOrder</td>
+                @*<td>@client.Contains</td>*@
+                <td>@client.TotalAmount</td>
+                <td>@client.Status</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@client.Id">Открыть</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

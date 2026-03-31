@@ -1,0 +1,68 @@
+﻿@page
+@model Cafe.Pages.Clients.CreateModel
+
+@{
+    ViewData["Title"] = "Добавление продукта";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Client.FullName" class="form-label">ФИО</label>
+        <input asp-for="Client.FullName" class="form-control" />
+        <span asp-validation-for="Client.FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Client.Email" class="form-label">Почта</label>
+        <input asp-for="Client.Email" class="form-control" />
+        <span asp-validation-for="Client.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Client.Phone" class="form-label">Телефон</label>
+        <input asp-for="Client.Phone" class="form-control" />
+        <span asp-validation-for="Client.Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Client.Age" class="form-label">Возвраст</label>
+        <input asp-for="Client.Age" class="form-control" />
+        <span asp-validation-for="Client.Age" class="text-danger"></span>
+    </div>
+
+    @* <div class="form-group mb-3">
+        <label asp-for="Client.TypeID" class="form-label">Тип продукта</label>
+        <select asp-for="Client.TypeID" class="form-control" asp-items="Model.TypeList">
+            <option value="">-- Выберите тип --</option>
+        </select>
+        <span asp-validation-for="Client.TypeID" class="text-danger"></span>
+    </div> *@
+
+    @* <div class="form-group mb-3">
+        <label asp-for="Client.PublisherID" class="form-label">Издатель</label>
+        <select asp-for="Client.PublisherID" class="form-control" asp-items="Model.PublisherList">
+            <option value="">-- Выберите издателя --</option>
+        </select>
+        <span asp-validation-for="Client.PublisherID" class="text-danger"></span>
+    </div> *@
+
+    @* <div class="form-group mb-3">
+        <label asp-for="Client.Price" class="form-label">Цена</label>
+        <input asp-for="Client.Price" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Client.Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Client.Quantity" class="form-label">Количество</label>
+        <input asp-for="Client.Quantity" class="form-control" type="number" />
+        <span asp-validation-for="Client.Quantity" class="text-danger"></span>
+    </div> *@
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

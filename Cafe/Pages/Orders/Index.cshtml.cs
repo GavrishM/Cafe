@@ -3,21 +3,21 @@ using Cafe.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Cafe.Pages.Objects.Meals
+namespace Cafe.Pages.Orders
 {
-    public class MealsListModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
-        public MealsListModel(ApplicationDbContext context)
+        public IndexModel(ApplicationDbContext context)
         {
             _context = context;
         }
-        public List<Meal> MealsList { get; set; }
+        public List<Order> OrdersList { get; set; }
 
         public void OnGet()
         {
-            MealsList = _context.Meals.ToList();
+            OrdersList = _context.Orders.ToList();
         }
     }
 }

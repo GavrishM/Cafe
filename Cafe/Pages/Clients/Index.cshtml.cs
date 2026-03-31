@@ -5,11 +5,11 @@ using Cafe.Model;
 
 namespace Cafe.Pages.Objects.Clients
 {
-    public class ClientsListModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
-        public ClientsListModel(ApplicationDbContext context)
+        public IndexModel(ApplicationDbContext context)
         {
             _context = context;
         }

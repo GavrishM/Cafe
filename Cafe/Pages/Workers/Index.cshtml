@@ -1,29 +1,29 @@
 ﻿@page
-@model Cafe.Pages.Objects.Clients.ClientsListModel
+@model Cafe.Pages.Workers.IndexModel
 @{
-	ViewData["Title"] = "Список клиентов";
+	ViewData["Title"] = "Список работников";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>На этой странице будет список клиентов.</p>
+<p>На этой странице будет список работников.</p>
 
 <table border="1" cellpadding="5">
     <thead>
         <tr>
             <th>ФИО</th>
-            <th>Почта</th>
-            <th>Телефон</th>
             <th>Возвраст</th>
+            <th>Должность</th>
+            <th>Телефон</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var client in Model.ClientsList)
+        @foreach (var client in Model.WorkersList)
         {
             <tr>
                 <td>@client.FullName</td>
-                <td>@client.Email</td>
-                <td>@client.Phone</td>
                 <td>@client.Age</td>
+                <td>@client.Position</td>
+                <td>@client.Phone</td>
                 <td>
                     <a asp-page="Details" asp-route-id="@client.Id">Открыть</a>
                 </td>
