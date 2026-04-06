@@ -14,5 +14,6 @@
             TotalAmount = totalAmount;
             Status = status;
         }
+        public Order() { }
     }
 }

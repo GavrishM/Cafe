@@ -1,0 +1,55 @@
+﻿@page
+@model Cafe.Pages.Meals.CreateModel
+
+@{
+    ViewData["Title"] = "Добавление блюда";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Meal.Name" class="form-label">Название</label>
+        <input asp-for="Meal.Name" class="form-control" />
+        <span asp-validation-for="Meal.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Meal.Type" class="form-label">Тип</label>
+        <input asp-for="Meal.Type" class="form-control" />
+        <span asp-validation-for="Meal.Type" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Meal.Description" class="form-label">Описание</label>
+        <input asp-for="Meal.Description" class="form-control" />
+        <span asp-validation-for="Meal.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Meal.Contains" class="form-label">Содержимое</label>
+        <input asp-for="Meal.Contains" class="form-control" />
+        <span asp-validation-for="Meal.Contains" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Meal.Price" class="form-label">Цена</label>
+        <input asp-for="Meal.Price" class="form-control" />
+        <span asp-validation-for="Meal.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Meal.Weight" class="form-label">Вес</label>
+        <input asp-for="Meal.Weight" class="form-control" />
+        <span asp-validation-for="Meal.Weight" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Meal.Status" class="form-label">Статус</label>
+        <input asp-for="Meal.Status" class="form-control" />
+        <span asp-validation-for="Meal.Status" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

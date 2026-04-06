@@ -1,30 +1,22 @@
 using Cafe.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Cafe.Pages.Clients
+namespace Cafe.Pages.Workers
 {
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
-
         public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }
-
         [BindProperty]
-        public Cafe.Model.Client Client { get; set; } = new();
-
-        //public SelectList TypeList { get; set; } = default!;
-        //public SelectList PublisherList { get; set; } = default!;
+        public Cafe.Model.Worker Worker { get; set; } = new();
 
         public void OnGet()
         {
-            //LoadSelectLists();
         }
-
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -33,16 +25,10 @@ namespace Cafe.Pages.Clients
                 return Page();
             }
 
-            _context.Clients.Add(Client);
+            _context.Workers.Add(Worker);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("Index");
         }
-
-        //private void LoadSelectLists()
-        //{
-        //    TypeList = new SelectList(_context.ProductTypes, "Id", "Name");
-        //    PublisherList = new SelectList(_context.Publishers, "Id", "Name");
-        //}
     }
 }

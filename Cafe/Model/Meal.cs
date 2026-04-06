@@ -19,5 +19,6 @@
             Weight = weight;
             Status = status;
         }
+        public Meal() { }
     }
 }

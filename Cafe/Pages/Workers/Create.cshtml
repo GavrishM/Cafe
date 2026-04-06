@@ -1,0 +1,40 @@
+﻿@page
+@model Cafe.Pages.Workers.CreateModel
+
+@{
+    ViewData["Title"] = "Добавление работника";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Worker.FullName" class="form-label">ФИО</label>
+        <input asp-for="Worker.FullName" class="form-control" />
+        <span asp-validation-for="Worker.FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Worker.Age" class="form-label">Возвраст</label>
+        <input asp-for="Worker.Age" class="form-control" />
+        <span asp-validation-for="Worker.Age" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Worker.Position" class="form-label">Должность</label>
+        <input asp-for="Worker.Position" class="form-control" />
+        <span asp-validation-for="Worker.Position" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Worker.Phone" class="form-label">Номер телефона</label>
+        <input asp-for="Worker.Phone" class="form-control" />
+        <span asp-validation-for="Worker.Phone" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

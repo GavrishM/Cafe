@@ -14,5 +14,6 @@
             Position = position;
             Phone = phone;
         }
+        public Worker() { }
     }
 }

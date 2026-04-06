@@ -1,0 +1,39 @@
+﻿@page
+@model Cafe.Pages.Orders.CreateModel
+@{
+    ViewData["Title"] = "Добавление заказа";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Order.NumberOrder" class="form-label">Номер</label>
+        <input asp-for="Order.NumberOrder" class="form-control" />
+        <span asp-validation-for="Order.NumberOrder" class="text-danger"></span>
+    </div>
+    @* <div class="form-group mb-3"> 
+         <label asp-for="Order.Contains" class="form-label">Содержимое</label> 
+         <input asp-for="Order.Contains" class="form-control" /> 
+         <span asp-validation-for="Order.Contains" class="text-danger"></span> 
+     </div> *@
+    <div class="form-group mb-3">
+        <label asp-for="Order.TotalAmount" class="form-label">Счет</label>
+        <input asp-for="Order.TotalAmount" class="form-control" />
+        <span asp-validation-for="Order.TotalAmount" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Order.Status" class="form-label">Статус</label>
+        <input asp-for="Order.Status" class="form-control" />
+        <span asp-validation-for="Order.Status" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
