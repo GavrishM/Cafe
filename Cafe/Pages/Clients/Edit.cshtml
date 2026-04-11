@@ -1,4 +1,45 @@
 ﻿@page
 @model Cafe.Pages.Clients.EditModel
+
 @{
+    ViewData["Title"] = "Редактирование клиента";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Client.Id" />
+
+    <div class="form-group mb-3">
+        <label asp-for="Client.FullName" class="form-label">ФИО</label>
+        <input asp-for="Client.FullName" class="form-control" />
+        <span asp-validation-for="Client.FullName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Client.Email" class="form-label">Почта</label>
+        <input asp-for="Client.Email" class="form-control" />
+        <span asp-validation-for="Client.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Client.Phone" class="form-label">Номер телефона</label>
+        <input asp-for="Client.Phone" class="form-control" />
+        <span asp-validation-for="Client.Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Client.Age" class="form-label">Возвраст</label>
+        <input asp-for="Client.Age" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Client.Age" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
