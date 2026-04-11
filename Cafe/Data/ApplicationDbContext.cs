@@ -21,3 +21,4 @@ namespace Cafe.Data
 * Add-Migration
 * Update-Database
 */
+//При запуске на новом ПК Update-Database
