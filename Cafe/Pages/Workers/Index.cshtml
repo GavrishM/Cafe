@@ -5,7 +5,9 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>На этой странице будет список работников.</p>
+<p>
+    <a asp-page="Create" class="btn btn-primary">Добавить работника</a>
+</p>
 
 <table border="1" cellpadding="5">
     <thead>
@@ -17,15 +19,20 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var client in Model.WorkersList)
+        @foreach (var worker in Model.WorkersList)
         {
             <tr>
-                <td>@client.FullName</td>
-                <td>@client.Age</td>
-                <td>@client.Position</td>
-                <td>@client.Phone</td>
+                <td>@worker.FullName</td>
+                <td>@worker.Age</td>
+                <td>@worker.Position</td>
+                <td>@worker.Phone</td>
                 <td>
-                    <a asp-page="Details" asp-route-id="@client.Id">Открыть</a>
+                    <a asp-page="Details" asp-route-id="@worker.Id">Открыть</a>
+                </td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@worker.Id" class="btn btn-sm btn-info">Детали</a>
+                    <a asp-page="Edit" asp-route-id="@worker.Id" class="btn btn-sm btn-warning">Редактировать</a>
+                    <a asp-page="Delete" asp-route-id="@worker.Id" class="btn btn-sm btn-danger">Удалить</a>
                 </td>
             </tr>
         }
