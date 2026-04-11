@@ -1,7 +1,10 @@
-﻿namespace Cafe.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Cafe.Model
 {
     public class Worker : EFModel               //Работник
     {                                           //
+        [Required(ErrorMessage = "Необходимо заполнить ФИО")]
         public string FullName { get; set; }    //ФИО
         public int Age { get; set; }            //Возвраст
         public string Position { get; set; }    //Должность

@@ -1,7 +1,11 @@
-﻿namespace Cafe.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Cafe.Model
 {
     public class Meal : EFModel                     //Заказ
     {                                               //
+        [Required(ErrorMessage = "Необходимо заполнить название")]
+        public string Name { get; set; }            //Название
         public string Type { get; set; }	        //Категория\тип(напитки,десерты...)
         public string Description { get; set; }     //Описание
         public string Contains { get; set; }   	    //Состав

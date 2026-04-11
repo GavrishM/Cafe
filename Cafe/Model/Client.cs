@@ -1,7 +1,10 @@
-﻿namespace Cafe.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Cafe.Model
 {
     public class Client : EFModel           //Клиент
     {                                       //
+        [Required(ErrorMessage = "Необходимо заполнить ФИО")]
         public string FullName { get; set; }//ФИО
         public string Email { get; set; }  //Почта
         public string Phone {  get; set; } //Номер телефона
