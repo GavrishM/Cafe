@@ -8,3 +8,42 @@
     <h1 class="display-4">Добро пожаловать в проект Кафе</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Клиенты</h5>
+                <p class="card-text">Просмотр, создание, редактирование и удаление записей клиентов.</p>
+                <a asp-page="/Clients/Index" class="btn btn-primary">Перейти к клиентам</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Блюда</h5>
+                <p class="card-text">Управление списком доступных блюд.</p>
+                <a asp-page="/Meals/Index" class="btn btn-primary">Перейти к блюдам</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Заказы</h5>
+                <p class="card-text">Управление информацией о заказах.</p>
+                <a asp-page="/Orders/Index" class="btn btn-primary">Перейти к заказам</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Работники</h5>
+                <p class="card-text">Управление информацией о работниках.</p>
+                <a asp-page="/Workers/Index" class="btn btn-primary">Перейти к работникамам</a>
+            </div>
+        </div>
+    </div>
+</div>
