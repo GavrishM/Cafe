@@ -10,38 +10,32 @@
         <h3>Вы уверены, что хотите удалить это блюдо?</h3>
 </div>
 
-
-<div class="card">
+<div class="card h-100 shadow-sm">
     <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Название</dt>
-            <dd class="col-sm-9">@Model.Meal.Name</dd>
-
-            <dt class="col-sm-3">Тип</dt>
-            <dd class="col-sm-9">@(Model.Meal.Type ?? "—")</dd>
-
-            <dt class="col-sm-3">Описание</dt>
-            <dd class="col-sm-9">@(Model.Meal.Description ?? "—")</dd>
-
-            <dt class="col-sm-3">Состав</dt>
-            <dd class="col-sm-9">@(Model.Meal.Contains ?? "—")</dd>
-
-            <dt class="col-sm-3">Цена</dt>
-            <dd class="col-sm-9">@(Model.Meal.Price.ToString() ?? "-")</dd>
-
-            <dt class="col-sm-3">Вес</dt>
-            <dd class="col-sm-9">@(Model.Meal.Weight.ToString() ?? "-")</dd>
-
-            <dt class="col-sm-3">Статус</dt>
-            <dd class="col-sm-9">@(Model.Meal.Status ?? "—")</dd>
-
-        </dl>
+        <h5 class="card-title">@Model.Meal.Name</h5>
+        <p class="card-text">
+            <strong>Почта:</strong> @Model.Meal.Type
+        </p>
+        <p class="card-text">
+            <strong>Описание:</strong> @Model.Meal.Description
+        </p>
+        <p class="card-text">
+            <strong>Состав:</strong> @Model.Meal.Contains
+        </p>
+        <p class="card-text">
+            <strong>Цена:</strong> @Model.Meal.Price.ToString()
+        </p>
+        <p class="card-text">
+            <strong>Вес:</strong> @Model.Meal.Weight.ToString()
+        </p>
+        <p class="card-text">
+            <strong>Статус:</strong> @Model.Meal.Status
+        </p>
     </div>
 </div>
 
-
 <form method="post">
     <input type="hidden" asp-for="Meal.Id" />
-    <button type="submit" class="btn btn-danger">Удалить</button>
-    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+    <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+    <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Отмена</a>
 </form>

@@ -6,39 +6,41 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Добавить блюдо</a>
+    <a asp-page="Create" class="btn btn-sm btn-outline-success">Добавить блюдо</a>
 </p>
 
-<table border="1" cellpadding="5">
-    <thead>
-        <tr>
-            <th>Название</th>
-            <th>Тип</th>
-            <th>Описание</th>
-            <th>Состав</th>
-            <th>Цена</th>
-            <th>Вес</th>
-            <th>Статус</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var meal in Model.MealsList)
-        {
-            <tr>
-                <td>@meal.Name</td>
-                <td>@meal.Type</td>
-                <td>@meal.Description</td>
-                <td>@meal.Contains</td>
-                <td>@meal.Price</td>
-                <td>@meal.Weight</td>
-                <td>@meal.Status</td>
-                
-                <td>
-                    <a asp-page="Details" asp-route-id="@meal.Id" class="btn btn-sm btn-info">Детали</a>
-                    <a asp-page="Edit" asp-route-id="@meal.Id" class="btn btn-sm btn-warning">Редактировать</a>
-                    <a asp-page="Delete" asp-route-id="@meal.Id" class="btn btn-sm btn-danger">Удалить</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var meal in Model.MealsList)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@meal.Name</h5>
+                    <p class="card-text">
+                        <strong>Категория:</strong> @meal.Type
+                    </p>
+                    <p class="card-text">
+                        <strong>Описание:</strong> @meal.Description
+                    </p>
+                    <p class="card-text">
+                        <strong>Состав:</strong> @meal.Contains
+                    </p>
+                    <p class="card-text">
+                        <strong>Цена:</strong> @meal.Price
+                    </p>
+                    <p class="card-text">
+                        <strong>Вес:</strong> @meal.Weight
+                    </p>
+                    <p class="card-text">
+                        <strong>Статус:</strong> @meal.Status
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a asp-page="Details" asp-route-id="@meal.Id" class="btn btn-sm btn-outline-primary">Детали</a>
+                    <a asp-page="Edit" asp-route-id="@meal.Id" class="btn btn-sm btn-outline-warning">Редактировать</a>
+                    <a asp-page="Delete" asp-route-id="@meal.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
