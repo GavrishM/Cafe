@@ -12,7 +12,6 @@
 <body>
     <header>                              @*           фон       *@
         <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom"
-             data-bs-theme="light"
              id="mainNavbar">
             <div class="container">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -70,56 +69,48 @@
 </html>
 
 <script>
-    const html = document.documentElement;
-
-    // Проверяем сохраненную тему в localStorage
-    const savedTheme = localStorage.getItem('bs-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-
-    html.setAttribute('data-bs-theme', currentTheme);
-
-    // Отслеживаем изменение системной темы (если тема не сохранена)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (!localStorage.getItem('bs-theme')) {
-            const newTheme = e.matches ? 'dark' : 'light';
-            html.setAttribute('data-bs-theme', newTheme);
-        }
-    });
-
-            function toggleTheme() {
+    // Функция применения темы к странице и navbar
+    function applyTheme(theme) {
         const html = document.documentElement;
-        const navbar = document.querySelector('.navbar');
-        const currentTheme = html.getAttribute('data-bs-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const navbar = document.getElementById('mainNavbar');
 
-            // При загрузке
-        const savedTheme = localStorage.getItem('bs-theme') || 'light';
-        html.setAttribute('data-bs-theme', savedTheme);
+        html.setAttribute('data-bs-theme', theme);
+
         if (navbar) {
-            navbar.setAttribute('data-bs-theme', savedTheme);
-        }
+            navbar.setAttribute('data-bs-theme', theme);
 
-        // Обновляем тему для всей страницы
-        html.setAttribute('data-bs-theme', newTheme);
-
-        // Обновляем тему для navbar
-        if (navbar) {
-            navbar.setAttribute('data-bs-theme', newTheme);
-
-            // Опционально: меняем классы для светлой/темной темы
-            if (newTheme === 'dark') {
+            // Меняем классы Bootstrap для navbar
+            if (theme === 'dark') {
                 navbar.classList.remove('navbar-light', 'bg-light');
                 navbar.classList.add('navbar-dark', 'bg-dark');
-
             } else {
                 navbar.classList.remove('navbar-dark', 'bg-dark');
                 navbar.classList.add('navbar-light', 'bg-light');
-
             }
         }
+    }
 
-        // Сохраняем в localStorage
+    // === ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ ===
+    const savedTheme = localStorage.getItem('bs-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+    applyTheme(initialTheme);
+
+    // Отслеживаем изменение системной темы (только если пользователь не выбрал тему)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('bs-theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // === ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ===
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        applyTheme(newTheme);
         localStorage.setItem('bs-theme', newTheme);
     }
 </script>
