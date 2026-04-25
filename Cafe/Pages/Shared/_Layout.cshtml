@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/Cafe.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header>                              @*           фон       *@
         <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom"
              data-bs-theme="light"
              id="mainNavbar">
@@ -18,23 +18,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <a class="navbar-brand" asp-page="/Index">Cafe</a>
-                        <li class="nav-item">
+                        <li class="navbar-item">
                             <a class="nav-link" asp-page="/Index">Главная</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" asp-page="/Privacy">Конфиденциальность</a>
+                            <a class="nav-link" asp-page="/Privacy">Конфиденциальность</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" asp-page="/Meals/Index">Блюда</a>
+                            <a class="nav-link" asp-page="/Meals/Index">Блюда</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" asp-page="/Clients/Index">Клиенты</a>
+                            <a class="nav-link" asp-page="/Clients/Index">Клиенты</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" asp-page="/Orders/Index">Заказы</a>
+                            <a class="nav-link" asp-page="/Orders/Index">Заказы</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" asp-page="/Workers/Index">Работники</a>
+                            <a class="nav-link" asp-page="/Workers/Index">Работники</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
@@ -92,6 +92,13 @@
         const navbar = document.querySelector('.navbar');
         const currentTheme = html.getAttribute('data-bs-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            // При загрузке
+        const savedTheme = localStorage.getItem('bs-theme') || 'light';
+        html.setAttribute('data-bs-theme', savedTheme);
+        if (navbar) {
+            navbar.setAttribute('data-bs-theme', savedTheme);
+        }
 
         // Обновляем тему для всей страницы
         html.setAttribute('data-bs-theme', newTheme);
