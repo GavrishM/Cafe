@@ -10,29 +10,20 @@
         <h3>Вы уверены, что хотите удалить этот заказ?</h3>
 </div>
 
-
-<div class="card">
+<div class="card h-100 shadow-sm">
     <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Номер заказа</dt>
-            <dd class="col-sm-9">@Model.Order.NumberOrder.ToString()</dd>
-
-            @* <dt class="col-sm-3">Содержимое заказа</dt>
-            <dd class="col-sm-9">@(Model.Order.Contains ?? "—")</dd> *@
-
-            <dt class="col-sm-3">Счет</dt>
-            <dd class="col-sm-9">@(Model.Order.TotalAmount.ToString() ?? "—")</dd>
-
-            <dt class="col-sm-3">Статус</dt>
-            <dd class="col-sm-9">@(Model.Order.Status ?? "—")</dd>
-
-        </dl>
+        <h5 class="card-title">@Model.Order.NumberOrder</h5>
+        <p class="card-text">
+            <strong>Счет:</strong> @Model.Order.TotalAmount
+        </p>
+        <p class="card-text">
+            <strong>Статус:</strong> @Model.Order.Status
+        </p>
     </div>
 </div>
 
-
 <form method="post">
     <input type="hidden" asp-for="Order.Id" />
-    <button type="submit" class="btn btn-danger">Удалить</button>
-    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+    <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+    <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Отмена</a>
 </form>
