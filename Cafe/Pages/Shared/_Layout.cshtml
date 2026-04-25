@@ -13,13 +13,14 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Cafe</a>
+                <a class="navbar-brand" asp-page="/Index">Cafe</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-page="/Index">Главная</a>
                         </li>
@@ -71,7 +72,7 @@
 </body>
 </html>
 
-<script>
+@* <script>
     const html = document.documentElement;
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     html.setAttribute("data-bs-theme", prefersDark ? "dark" : "light");
@@ -85,5 +86,33 @@
         const html = document.documentElement;
         const currentTheme = html.getAttribute("data-bs-theme");
         html.setAttribute("data-bs-theme", currentTheme === "dark" ? "light" : "dark");
+    }
+</script> *@
+<script>
+    const html = document.documentElement;
+
+    // Проверяем сохраненную тему в localStorage
+    const savedTheme = localStorage.getItem('bs-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+    html.setAttribute('data-bs-theme', currentTheme);
+
+    // Отслеживаем изменение системной темы (если тема не сохранена)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('bs-theme')) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            html.setAttribute('data-bs-theme', newTheme);
+        }
+    });
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-bs-theme', newTheme);
+        // Сохраняем выбор в localStorage
+        localStorage.setItem('bs-theme', newTheme);
     }
 </script>
