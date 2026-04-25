@@ -11,39 +11,36 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom"
+             data-bs-theme="light"
+             id="mainNavbar">
             <div class="container">
-                <a class="navbar-brand" asp-page="/Index">Cafe</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        
+                        <a class="navbar-brand" asp-page="/Index">Cafe</a>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Index">Главная</a>
+                            <a class="nav-link" asp-page="/Index">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Privacy">Конфиденциальность</a>
+                        <a class="nav-link" asp-page="/Privacy">Конфиденциальность</a>
                         </li>
-                        <li class="nav-item">    
-                            <a class="nav-link text-dark" asp-page="/Meals/Index">Блюда</a>
+                        <li class="nav-item">
+                        <a class="nav-link" asp-page="/Meals/Index">Блюда</a>
                         </li>
-                        <li class="nav-item">    
-                            <a class="nav-link text-dark" asp-page="/Clients/Index">Клиенты</a>
+                        <li class="nav-item">
+                        <a class="nav-link" asp-page="/Clients/Index">Клиенты</a>
                         </li>
-                        <li class="nav-item">    
-                            <a class="nav-link text-dark" asp-page="/Orders/Index">Заказы</a>
+                        <li class="nav-item">
+                        <a class="nav-link" asp-page="/Orders/Index">Заказы</a>
                         </li>
-                        <li class="nav-item">    
-                            <a class="nav-link text-dark" asp-page="/Workers/Index">Работники</a>
+                        <li class="nav-item">
+                        <a class="nav-link" asp-page="/Workers/Index">Работники</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         @*+++ темная тема*@
                         <li class="nav-item">
-                            <button class="btn btn-outline-secondary" onclick="toggleTheme()">🌓 Переключить тему</button>
+                            <button class=" navbar btn btn-outline-secondary" onclick="toggleTheme()">🌓 Переключить тему</button>
                         </li>
                         @*--- темная тема*@
 
@@ -90,13 +87,32 @@
         }
     });
 
-    function toggleTheme() {
+            function toggleTheme() {
         const html = document.documentElement;
+        const navbar = document.querySelector('.navbar');
         const currentTheme = html.getAttribute('data-bs-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
+        // Обновляем тему для всей страницы
         html.setAttribute('data-bs-theme', newTheme);
-        // Сохраняем выбор в localStorage
+
+        // Обновляем тему для navbar
+        if (navbar) {
+            navbar.setAttribute('data-bs-theme', newTheme);
+
+            // Опционально: меняем классы для светлой/темной темы
+            if (newTheme === 'dark') {
+                navbar.classList.remove('navbar-light', 'bg-light');
+                navbar.classList.add('navbar-dark', 'bg-dark');
+
+            } else {
+                navbar.classList.remove('navbar-dark', 'bg-dark');
+                navbar.classList.add('navbar-light', 'bg-light');
+
+            }
+        }
+
+        // Сохраняем в localStorage
         localStorage.setItem('bs-theme', newTheme);
     }
 </script>
