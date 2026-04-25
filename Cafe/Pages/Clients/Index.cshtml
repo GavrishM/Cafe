@@ -6,7 +6,7 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Добавить клиента</a>
+    <a asp-page="Create" class="btn btn-sm btn-outline-success">Добавить клиента</a>
 </p>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -26,9 +26,9 @@
                     </p>
                 </div>
                 <div class="card-footer bg-transparent">
-                    <a asp-page="./Details" asp-route-id="@client.Id" class="btn btn-sm btn-outline-primary">Детали</a>
-                    <a asp-page="./Edit" asp-route-id="@client.Id" class="btn btn-sm btn-outline-primary">Редактировать</a>
-                    <a asp-page="./Delete" asp-route-id="@client.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
+                    <a asp-page="Details" asp-route-id="@client.Id" class="btn btn-sm btn-outline-primary">Детали</a>
+                    <a asp-page="Edit" asp-route-id="@client.Id" class="btn btn-sm btn-outline-warning">Редактировать</a>
+                    <a asp-page="Delete" asp-route-id="@client.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
                 </div>
             </div>
         </div>

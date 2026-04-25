@@ -11,28 +11,22 @@
 </div>
 
 
-<div class="card">
+<div class="card h-100 shadow-sm">
     <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">ФИО</dt>
-            <dd class="col-sm-9">@Model.Client.FullName</dd>
-
-            <dt class="col-sm-3">Почта</dt>
-            <dd class="col-sm-9">@(Model.Client.Email ?? "—")</dd>
-
-            <dt class="col-sm-3">Номер телефона</dt>
-            <dd class="col-sm-9">@(Model.Client.Phone ?? "—")</dd>
-
-            <dt class="col-sm-3">Возвраст</dt>
-            <dd class="col-sm-9">@(Model.Client.Age.ToString() ?? "-")</dd>
-
-        </dl>
+        <h5 class="card-title">@Model.Client.FullName</h5>
+        <p class="card-text">
+            <strong>Почта:</strong> @Model.Client.Email
+        </p>
+        <p class="card-text">
+            <strong>Номер телефона:</strong> @Model.Client.Phone
+        </p><p class="card-text">
+            <strong>Возвраст:</strong> @Model.Client.Age
+        </p>
     </div>
-</div>
 
 
 <form method="post">
     <input type="hidden" asp-for="Client.Id" />
-    <button type="submit" class="btn btn-danger">Удалить</button>
-    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+        <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+        <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Отмена</a>
 </form>
