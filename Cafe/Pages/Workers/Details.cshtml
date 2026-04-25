@@ -5,26 +5,24 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">ФИО</dt>
-            <dd class="col-sm-9">@Model.Worker.FullName</dd>
-
-            <dt class="col-sm-3">Возвраст</dt>
-            <dd class="col-sm-9">@Model.Worker.Age.ToString("C")</dd>
-
-            <dt class="col-sm-3">Должность</dt>
-            <dd class="col-sm-9">@(Model.Worker.Position ?? "—")</dd>
-
-            <dt class="col-sm-3">Номер телефона</dt>
-            <dd class="col-sm-9">@(Model.Worker.Phone ?? "—")</dd>
-        </dl>
+<div class="col">
+    <div class="card h-100 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Worker.FullName</h5>
+            <p class="card-text">
+                <strong>Возвраст:</strong> @Model.Worker.Age
+            </p>
+            <p class="card-text">
+                <strong>Должность:</strong> @Model.Worker.Position
+            </p>
+            <p class="card-text">
+                <strong>Номер телефона:</strong> @Model.Worker.Phone
+            </p>
+        </div>
+        <div class="card-footer bg-transparent">
+            <a asp-page="Edit" asp-route-id="@Model.Worker.Id" class="btn btn-sm btn-outline-warning">Редактировать</a>
+            <a asp-page="Delete" asp-route-id="@Model.Worker.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
+            <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Назад к списку</a>
+        </div>
     </div>
 </div>
-
-<p class="mt-3">
-    <a asp-page="Edit" asp-route-id="@Model.Worker.Id" class="btn btn-warning">Редактировать</a>
-    <a asp-page="Delete" asp-route-id="@Model.Worker.Id" class="btn btn-danger">Удалить</a>
-    <a asp-page="Index" class="btn btn-secondary">Назад к списку</a>
-</p>

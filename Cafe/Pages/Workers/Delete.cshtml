@@ -10,29 +10,23 @@
         <h3>Вы уверены, что хотите удалить этого работника?</h3>
 </div>
 
-
-<div class="card">
+<div class="card h-100 shadow-sm">
     <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">ФИО</dt>
-            <dd class="col-sm-9">@Model.Worker.FullName</dd>
-
-            <dt class="col-sm-3">Возвраст</dt>
-            <dd class="col-sm-9">@(Model.Worker.Age.ToString() ?? "—")</dd>
-
-            <dt class="col-sm-3">Должность</dt>
-            <dd class="col-sm-9">@(Model.Worker.Position ?? "—")</dd>
-
-            <dt class="col-sm-3">Номер телефона</dt>
-            <dd class="col-sm-9">@(Model.Worker.Phone ?? "-")</dd>
-
-        </dl>
+        <h5 class="card-title">@Model.Worker.FullName</h5>
+        <p class="card-text">
+            <strong>Возвраст:</strong> @Model.Worker.Age
+        </p>
+        <p class="card-text">
+            <strong>Должность:</strong> @Model.Worker.Position
+        </p>
+        <p class="card-text">
+            <strong>Номер телефона:</strong> @Model.Worker.Phone
+        </p>
     </div>
 </div>
 
-
 <form method="post">
     <input type="hidden" asp-for="Worker.Id" />
-    <button type="submit" class="btn btn-danger">Удалить</button>
-    <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+    <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+    <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Отмена</a>
 </form>

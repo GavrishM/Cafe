@@ -6,33 +6,33 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Добавить работника</a>
+    <a asp-page="Create" class="btn btn-sm btn-outline-success">Добавить работника</a>
 </p>
 
-<table border="1" cellpadding="5">
-    <thead>
-        <tr>
-            <th>ФИО</th>
-            <th>Возвраст</th>
-            <th>Должность</th>
-            <th>Телефон</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var worker in Model.WorkersList)
-        {
-            <tr>
-                <td>@worker.FullName</td>
-                <td>@worker.Age</td>
-                <td>@worker.Position</td>
-                <td>@worker.Phone</td>
-                
-                <td>
-                    <a asp-page="Details" asp-route-id="@worker.Id" class="btn btn-sm btn-info">Детали</a>
-                    <a asp-page="Edit" asp-route-id="@worker.Id" class="btn btn-sm btn-warning">Редактировать</a>
-                    <a asp-page="Delete" asp-route-id="@worker.Id" class="btn btn-sm btn-danger">Удалить</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var worker in Model.WorkersList)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@worker.FullName</h5>
+                    <p class="card-text">
+                        <strong>Возвраст:</strong> @worker.Age
+                    </p>
+                    <p class="card-text">
+                        <strong>Должность:</strong> @worker.Position
+                    </p>
+                    <p class="card-text">
+                        <strong>Номер телефона:</strong> @worker.Phone
+                    </p>
+                    
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a asp-page="Details" asp-route-id="@worker.Id" class="btn btn-sm btn-outline-primary">Детали</a>
+                    <a asp-page="Edit" asp-route-id="@worker.Id" class="btn btn-sm btn-outline-warning">Редактировать</a>
+                    <a asp-page="Delete" asp-route-id="@worker.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
