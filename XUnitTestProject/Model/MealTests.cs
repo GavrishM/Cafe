@@ -30,7 +30,6 @@ namespace XUnitTestProject.Model
                 Assert.True(description == meal.Description);
                 Assert.True(contains == meal.Contains);
                 Assert.True(price == meal.Price);
-                Assert.True(price == meal.Price);
                 Assert.True(weight == meal.Weight);
                 Assert.True(status == meal.Status);
             }//p1
@@ -50,7 +49,6 @@ namespace XUnitTestProject.Model
                 Assert.True(type == meal.Type);
                 Assert.True(description == meal.Description);
                 Assert.True(contains == meal.Contains);
-                Assert.True(price == meal.Price);
                 Assert.True(price == meal.Price);
                 Assert.True(weight == meal.Weight);
                 Assert.True(status == meal.Status);
@@ -72,7 +70,6 @@ namespace XUnitTestProject.Model
                 Assert.True(description == meal.Description);
                 Assert.True(contains == meal.Contains);
                 Assert.True(price == meal.Price);
-                Assert.True(price == meal.Price);
                 Assert.True(weight == meal.Weight);
                 Assert.True(status == meal.Status);
             }//p3
@@ -84,7 +81,6 @@ namespace XUnitTestProject.Model
                 Assert.True(null == meal.Type);
                 Assert.True(null == meal.Description);
                 Assert.True(null == meal.Contains);
-                //Assert.True(null == meal.Price);
                 //Assert.True(null == meal.Price);
                 //Assert.True(null == meal.Weight);
                 Assert.True(null == meal.Status);
