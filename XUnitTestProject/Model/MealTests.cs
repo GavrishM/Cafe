@@ -77,13 +77,13 @@ namespace XUnitTestProject.Model
             {
                 Meal meal = new Meal();
 
-                Assert.True(null == meal.Name);
-                Assert.True(null == meal.Type);
-                Assert.True(null == meal.Description);
-                Assert.True(null == meal.Contains);
-                //Assert.True(null == meal.Price);
-                //Assert.True(null == meal.Weight);
-                Assert.True(null == meal.Status);
+                Assert.True("" == meal.Name);
+                Assert.True("" == meal.Type);
+                Assert.True("" == meal.Description);
+                Assert.True("" == meal.Contains);
+                Assert.True(0 == meal.Price);
+                Assert.True(0 == meal.Weight);
+                Assert.True("" == meal.Status);
             }//empty constructor
         }
     }

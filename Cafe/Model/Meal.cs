@@ -23,6 +23,15 @@ namespace Cafe.Model
             Weight = weight;
             Status = status;
         }
-        public Meal() { }
+        public Meal()
+        {
+            Name = "";
+            Type = "";
+            Description = "";
+            Contains = "";
+            Price = 0;
+            Weight = 0;
+            Status = "";
+        }
     }
 }
