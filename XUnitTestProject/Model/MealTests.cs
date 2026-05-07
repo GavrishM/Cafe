@@ -1,7 +1,12 @@
-﻿using Cafe.Model;
+﻿using Cafe.Data;
+using Cafe.Model;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,6 +90,54 @@ namespace XUnitTestProject.Model
                 Assert.True(0 == meal.Weight);
                 Assert.True("" == meal.Status);
             }//empty constructor
+        }
+
+        [Fact]
+        public void Meal_WithValidData_ShouldBeValid()
+        {
+            // Создаем объект клиента с валидными значениями.
+            Meal meal = new Meal
+            {
+                Name = "Борщ",     // Обязательное поле
+                Type = "Суп",
+                Description = "Суп из...",
+                Contains = "Вода...",
+                Price = 50,
+                Weight = 1,
+                Status = "В наличии"
+            };
+
+            // Создаем контекст валидации на основе объекта
+            var context = new ValidationContext(meal);
+
+            // Сюда будут записаны ошибки валидации, если они есть
+            var result = new List<ValidationResult>();
+
+            // Проводим валидацию объекта с учетом всех атрибутов [Required], [Range] и т.п.
+            var isValid = Validator.TryValidateObject(meal, context, result, true);
+
+            // Ожидаем, что валидация прошла успешно (все поля корректны)
+            Assert.True(isValid);
+
+            // Также убеждаемся, что список ошибок пуст
+            Assert.Empty(result);
+        }
+
+        [Fact]
+        public void Meal_WithInvalidName_ShouldBeInvalid()
+        {
+            // Arrange
+            Meal meal = new Meal(null, "Суп", "Суп из...", "Вода...", 50, 1, "В наличии");
+
+            var context = new ValidationContext(meal);
+            var results = new List<ValidationResult>();
+
+            // Act
+            var isValid = Validator.TryValidateObject(meal, context, results, true);
+
+            // Assert
+            Assert.False(isValid);
+            Assert.Contains(results, r => r.ErrorMessage.Contains("Необходимо заполнить название"));
         }
     }
 }

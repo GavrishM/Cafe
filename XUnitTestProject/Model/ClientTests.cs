@@ -1,4 +1,5 @@
-﻿using Cafe.Model;
+﻿
+using Cafe.Model;
 using System.ComponentModel.DataAnnotations;
 namespace XUnitTestProject.Model
 {
