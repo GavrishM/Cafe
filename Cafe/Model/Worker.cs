@@ -17,6 +17,12 @@ namespace Cafe.Model
             Position = position;
             Phone = phone;
         }
-        public Worker() { }
+        public Worker()
+        {
+            FullName = "";
+            Age = 0;
+            Position = "";
+            Phone = "";
+        }
     }
 }
