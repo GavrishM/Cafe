@@ -16,6 +16,7 @@ namespace Cafe.Pages.Clients
 
         [BindProperty]
         public Cafe.Model.Client Client { get; set; } = new();
+        public SelectList ClientList { get; set; }
 
         //public SelectList TypeList { get; set; } = default!;
         //public SelectList PublisherList { get; set; } = default!;
@@ -23,6 +24,19 @@ namespace Cafe.Pages.Clients
         public void OnGet()
         {
             //LoadSelectLists();
+        }
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                var clients = _context.Clients.ToList();
+                ClientList = new SelectList(clients, "Id", "Name");
+                return Page();
+            }
+            _context.Clients.Add(Client);
+            _context.SaveChanges();
+
+            return RedirectToPage("Index");
         }
 
         public async Task<IActionResult> OnPostAsync()

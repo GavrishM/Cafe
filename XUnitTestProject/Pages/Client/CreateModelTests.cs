@@ -1,13 +1,11 @@
 ﻿using Cafe.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace XUnitTestProject.Pages.Client
 {
     public class CreateModelTests
     {
-        /*
+
         private ApplicationDbContext GetDbContext()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
@@ -16,7 +14,7 @@ namespace XUnitTestProject.Pages.Client
 
             return new ApplicationDbContext(options);
         }
-        */
+
 
         [Fact]
         public void OnPost_ShouldReturnPage_WhenModelStateIsInvalid()

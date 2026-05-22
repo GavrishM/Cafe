@@ -88,8 +88,9 @@ namespace XUnitTestProject.Model
         //[Fact]
         //public void Order_WithInvalidFullName_ShouldBeInvalid()
         //{
+        //    int? number = null;
         //    // Arrange
-        //    Order order = new Order(null, 1.2, "OK");
+        //    Order order = new Order(Convert.ToInt32(number), 1.2, "OK");
 
         //    var context = new ValidationContext(order);
         //    var results = new List<ValidationResult>();
