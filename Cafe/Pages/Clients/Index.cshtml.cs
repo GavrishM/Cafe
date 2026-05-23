@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Cafe.Data;
 using Cafe.Model;
 
-namespace Cafe.Pages.Objects.Clients
+namespace Cafe.Pages.Clients
 {
     public class IndexModel : PageModel
     {
@@ -13,11 +13,11 @@ namespace Cafe.Pages.Objects.Clients
         {
             _context = context;
         }
-        public List<Client> ClientsList { get; set; }
+        public List<Client> Clients { get; set; }
 
         public void OnGet()
         {
-            ClientsList = _context.Clients.ToList();
+            Clients = _context.Clients.ToList();
         }
     }
 }
