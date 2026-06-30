@@ -1,0 +1,35 @@
+﻿@page
+@model Cafe.Pages.Meals.DetailsModel
+@{
+	ViewData["Title"] = "Информация о блюде";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="col">
+    <div class="card h-100 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Meal.Name</h5>
+            <p class="card-text">
+                <strong>Категория:</strong> @Model.Meal.Type
+            </p>
+            <p class="card-text">
+                <strong>Описание:</strong> @Model.Meal.Description
+            </p><p class="card-text">
+                <strong>Состав:</strong> @Model.Meal.Contains
+            </p>
+            <p class="card-text">
+                <strong>Цена:</strong> @Model.Meal.Price.ToString("C")
+            </p>
+            <p class="card-text">
+                <strong>Вес:</strong> @Model.Meal.Weight.ToString("")
+            </p><p class="card-text">
+                <strong>Статус:</strong> @Model.Meal.Status
+            </p>
+        </div>
+        <div class="card-footer bg-transparent">
+            <a asp-page="Edit" asp-route-id="@Model.Meal.Id" class="btn btn-sm btn-outline-warning">Редактировать</a>
+            <a asp-page="Delete" asp-route-id="@Model.Meal.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
+            <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Назад к списку</a>
+        </div>
+    </div>
+</div>

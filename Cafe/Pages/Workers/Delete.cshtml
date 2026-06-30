@@ -1,0 +1,32 @@
+﻿@page
+@model Cafe.Pages.Workers.DeleteModel
+@{
+    ViewData["Title"] = "Удаление работника";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-danger">
+        <h3>Вы уверены, что хотите удалить этого работника?</h3>
+</div>
+
+<div class="card h-100 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Worker.FullName</h5>
+        <p class="card-text">
+            <strong>Возвраст:</strong> @Model.Worker.Age
+        </p>
+        <p class="card-text">
+            <strong>Должность:</strong> @Model.Worker.Position
+        </p>
+        <p class="card-text">
+            <strong>Номер телефона:</strong> @Model.Worker.Phone
+        </p>
+    </div>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Worker.Id" />
+    <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+    <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Отмена</a>
+</form>

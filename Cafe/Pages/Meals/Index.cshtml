@@ -1,0 +1,46 @@
+﻿@page
+@model Cafe.Pages.Objects.Meals.IndexModel
+@{
+	ViewData["Title"] = "Список блюд";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-sm btn-outline-success">Добавить блюдо</a>
+</p>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var meal in Model.MealsList)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@meal.Name</h5>
+                    <p class="card-text">
+                        <strong>Категория:</strong> @meal.Type
+                    </p>
+                    <p class="card-text">
+                        <strong>Описание:</strong> @meal.Description
+                    </p>
+                    <p class="card-text">
+                        <strong>Состав:</strong> @meal.Contains
+                    </p>
+                    <p class="card-text">
+                        <strong>Цена:</strong> @meal.Price
+                    </p>
+                    <p class="card-text">
+                        <strong>Вес:</strong> @meal.Weight
+                    </p>
+                    <p class="card-text">
+                        <strong>Статус:</strong> @meal.Status
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a asp-page="Details" asp-route-id="@meal.Id" class="btn btn-sm btn-outline-primary">Детали</a>
+                    <a asp-page="Edit" asp-route-id="@meal.Id" class="btn btn-sm btn-outline-warning">Редактировать</a>
+                    <a asp-page="Delete" asp-route-id="@meal.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

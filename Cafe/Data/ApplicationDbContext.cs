@@ -13,6 +13,7 @@ namespace Cafe.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Worker> Workers { get; set; }
+        public DbSet<Meal> Meals { get; set; }
     }
 }
 /*
@@ -20,3 +21,4 @@ namespace Cafe.Data
 * Add-Migration
 * Update-Database
 */
+//При запуске на новом ПК Update-Database

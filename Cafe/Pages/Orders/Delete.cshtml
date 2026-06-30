@@ -1,0 +1,29 @@
+﻿@page
+@model Cafe.Pages.Orders.DeleteModel
+@{
+    ViewData["Title"] = "Удаление заказа";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-danger">
+        <h3>Вы уверены, что хотите удалить этот заказ?</h3>
+</div>
+
+<div class="card h-100 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Order.NumberOrder</h5>
+        <p class="card-text">
+            <strong>Счет:</strong> @Model.Order.TotalAmount
+        </p>
+        <p class="card-text">
+            <strong>Статус:</strong> @Model.Order.Status
+        </p>
+    </div>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Order.Id" />
+    <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+    <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Отмена</a>
+</form>

@@ -1,0 +1,25 @@
+﻿@page
+@model Cafe.Pages.Orders.DetailsModel
+@{
+	ViewData["Title"] = "Информация о заказе";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="col">
+    <div class="card h-100 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Order.NumberOrder</h5>
+            <p class="card-text">
+                <strong>Счет:</strong> @Model.Order.TotalAmount
+            </p>
+            <p class="card-text">
+                <strong>Статус:</strong> @Model.Order.Status
+            </p>
+        </div>
+        <div class="card-footer bg-transparent">
+            <a asp-page="Edit" asp-route-id="@Model.Order.Id" class="btn btn-sm btn-outline-warning">Редактировать</a>
+            <a asp-page="Delete" asp-route-id="@Model.Order.Id" class="btn btn-sm btn-outline-danger">Удалить</a>
+            <a asp-page="Index" class="btn btn-sm btn-outline-secondary">Назад к списку</a>
+        </div>
+    </div>
+</div>
